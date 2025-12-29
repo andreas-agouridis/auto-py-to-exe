@@ -1,0 +1,162 @@
+/* Sound Effects System */
+.sound-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: var(--surface);
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+}
+
+.sound-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-lg);
+}
+
+.sound-toggle.muted {
+  border-color: var(--disabled);
+  opacity: 0.6;
+}
+
+.sound-toggle svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--primary);
+  transition: all 0.3s ease;
+}
+
+.sound-toggle.muted svg {
+  fill: var(--disabled);
+}
+
+/* Visual Feedback for Sound */
+.sound-wave {
+  position: absolute;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sound-wave.active {
+  animation: sound-wave 0.6s ease-out;
+}
+
+@keyframes sound-wave {
+  0% {
+    width: 50px;
+    height: 50px;
+    opacity: 1;
+    top: 0;
+    left: 0;
+  }
+  100% {
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+    top: -25px;
+    left: -25px;
+  }
+}
+
+/* Click Feedback */
+.click-feedback {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.click-feedback::before {
+  content: '✨';
+  position: absolute;
+  font-size: 20px;
+  animation: click-sparkle 0.5s ease-out forwards;
+}
+
+@keyframes click-sparkle {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px) scale(1.5);
+  }
+}
+
+/* Success Celebration */
+.celebration {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.celebration-particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: celebration-float 2s ease-out forwards;
+}
+
+.celebration-particle:nth-child(1) { background: var(--primary); animation-delay: 0s; left: 0px; }
+.celebration-particle:nth-child(2) { background: var(--accent); animation-delay: 0.1s; left: 20px; }
+.celebration-particle:nth-child(3) { background: var(--success); animation-delay: 0.2s; left: -20px; }
+.celebration-particle:nth-child(4) { background: var(--warning); animation-delay: 0.3s; left: 40px; }
+.celebration-particle:nth-child(5) { background: var(--error); animation-delay: 0.4s; left: -40px; }
+
+@keyframes celebration-float {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) rotate(360deg);
+  }
+}
+
+/* Typing Sound Indicator */
+.typing-indicator {
+  display: inline-flex;
+  gap: 4px;
+  padding: 8px 12px;
+  background: var(--primary-subtle);
+  border-radius: var(--border-radius);
+  margin-left: var(--spacing-sm);
+}
+
+.typing-indicator span {
+  width: 6px;
+  height: 6px;
+  background: var(--primary);
+  border-radius: 50%;
+  animation: typing-indicator 1.4s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+.typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0s; }
+
+@keyframes typing-indicator {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  30% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
