@@ -23,3 +23,14 @@ ui_open_mode = UIOpenMode.CHROME_OR_EDGE
 supplied_ui_configuration = None
 default_output_directory = os.path.abspath("output")
 language_hint = None
+
+
+# Pre-defined variables by Python
+DEFAULT_RECURSION_LIMIT = sys.getrecursionlimit()
+
+# Argument-influenced configuration
+package_filename = None
+ui_open_mode = UIOpenMode.CHROME_OR_EDGE
+supplied_ui_configuration = None
+default_output_directory = os.path.abspath("output")
+language_hint = None
