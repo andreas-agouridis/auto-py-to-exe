@@ -13,30 +13,92 @@
 }
 
 :root {
-  --background: #fbfbfb;
-  --primary: #458bc6;
-  --primary-darker: #1c79c7;
-  --primary-transparent: #1c79c71a;
-  --error: red;
-  --unselected: lightgrey;
-  --disabled: #808080;
-  --text: #000000;
+  /* Modern color palette */
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --primary-light: #dbeafe;
+  --primary-transparent: #3b82f618;
+  --primary-subtle: #f1f5f9;
+  --accent: #8b5cf6;
+  --accent-hover: #7c3aed;
+  --error: #ef4444;
+  --error-light: #fef2f2;
+  --error-border: #fecaca;
+  --success: #10b981;
+  --success-light: #ecfdf5;
+  --warning: #f59e0b;
+  --warning-light: #fffbeb;
+  --warning-border: #fcd34d;
+  --unselected: #d1d5db;
+  --disabled: #9ca3af;
+  --text: #1f2937;
+  --text-secondary: #6b7280;
+  --text-tertiary: #9ca3af;
+  --border: #e5e7eb;
+  --border-subtle: #f3f4f6;
 
-  --title: #666666;
-  --warning-background: #fff3cd;
-  --warning-border: #a0987c;
-  --warning-text: #000000;
+  /* Typography */
+  --title: #374151;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
 
-  --border-radius: 4px;
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Design tokens */
+  --border-radius: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-transform: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dark-theme {
-  --background: #15131e;
-  --unselected: #5f5f5f;
-  --text: #ffffff;
+  /* Modern dark theme colors */
+  --background: #0f172a;
+  --surface: #1e293b;
+  --surface-elevated: #334155;
+  --primary: #60a5fa;
+  --primary-hover: #3b82f6;
+  --primary-light: #1e3a8a;
+  --primary-transparent: #60a5fa18;
+  --primary-subtle: #1e293b;
+  --accent: #a78bfa;
+  --accent-hover: #8b5cf6;
+  --error: #f87171;
+  --error-light: #7f1d1d;
+  --error-border: #991b1b;
+  --success: #34d399;
+  --success-light: #064e3b;
+  --warning: #fbbf24;
+  --warning-light: #78350f;
+  --warning-border: #d97706;
+  --unselected: #475569;
+  --disabled: #64748b;
+  --text: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #94a3b8;
+  --border: #334155;
+  --border-subtle: #1e293b;
 
-  --title: #e2e2e2;
-  --warning-background: #ffdc6d;
+  --title: #e2e8f0;
+  --warning-background: #451a03;
 }
 
 * {
@@ -46,28 +108,44 @@
 
 body {
   background-color: var(--background);
-  font-family: 'Vazirmatn', 'Nunito', Helvetica, Arial, sans-serif;
-  font-weight: 100;
-  margin: 0 18px 10px 18px;
+  font-family: 'Vazirmatn', 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  margin: 0;
+  padding: var(--spacing-lg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .mid {
   /* Global center alignment */
-  margin: auto;
-  max-width: 800px;
+  margin: 0 auto;
+  max-width: 900px;
+  width: 100%;
 }
 
 /* Headers */
 
+h1 {
+  font-weight: 600;
+  font-size: var(--font-size-3xl);
+  margin: 0;
+  line-height: 1.2;
+}
+
 h2 {
-  font-weight: normal;
-  font-size: 25px;
-  margin: 10px 0 2px 0;
+  font-weight: 600;
+  font-size: var(--font-size-2xl);
+  margin: var(--spacing-lg) 0 var(--spacing-sm) 0;
+  color: var(--title);
 }
 
 h3 {
-  font-size: 17px;
-  margin: 10px 0 4px 0;
+  font-weight: 500;
+  font-size: var(--font-size-xl);
+  margin: var(--spacing-md) 0 var(--spacing-xs) 0;
+  color: var(--text-secondary);
 }
 
 .sub_header {
@@ -84,54 +162,72 @@ h2 > small {
 
 button,
 input,
-select {
-  border: 1px solid var(--primary);
+select,
+textarea {
+  border: 1px solid var(--border);
   border-radius: var(--border-radius);
-  padding: 4px;
-
-  font-family: 'Vazirmatn', 'Nunito', Helvetica, Arial, sans-serif;
-  font-weight: 100;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-base);
+  font-family: 'Vazirmatn', 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 400;
+  background-color: var(--surface);
+  color: var(--text);
+  transition: var(--transition);
 }
 
 input,
 select,
 textarea,
 select option {
-  background-color: var(--background);
+  background-color: var(--surface);
 }
 
-input:focus {
-  outline: none; /* Don't show outline so you can see the colour change */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-transparent);
 }
 
 button {
   cursor: pointer;
   border-radius: var(--border-radius);
   background: transparent;
-  padding: 3px 8px;
-  transition: border 0.3s, background 0.3s;
+  padding: var(--spacing-sm) var(--spacing-md);
+  transition: var(--transition);
   border-style: solid;
   border-width: 2px;
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
 }
 
 button:not(.selected):not(.unselected):hover {
   /* Apply hovers to non-state buttons */
   background: var(--primary-transparent);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
 }
 
 button.selected,
 button.unselected:hover {
   border-color: var(--primary);
+  color: var(--primary);
 }
 
 button.unselected {
   border-color: var(--unselected);
-  color: var(--unselected);
+  color: var(--text-secondary);
+  background: var(--surface);
 }
 
 button.large {
-  border-width: 3px;
-  padding: 8px;
+  border-width: 2px;
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: var(--font-size-base);
+  border-radius: var(--border-radius-lg);
 }
 
 /* Info icon */
@@ -151,17 +247,19 @@ button.large {
 /* Small notes */
 
 .note {
-  font-size: 14px;
-  font-style: italic;
-  margin: 8px 0 0 0;
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin: var(--spacing-sm) 0 0 0;
+  font-style: normal;
 }
 
 /* Filepath-browse layout */
 
 .filepath-browse-layout {
   display: grid;
-  grid-gap: 4px;
-  grid-template-columns: 1fr 120px;
+  grid-gap: var(--spacing-sm);
+  grid-template-columns: 1fr 140px;
+  align-items: end;
 }
 
 /* Icon-specific */
